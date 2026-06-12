@@ -1,51 +1,52 @@
-# 起点
-- test.28.al
-- us.aemby.de
+payload:
+  # 起点
+  - DOMAIN-SUFFIX,test.28.al
+  - DOMAIN-SUFFIX,us.aemby.de
 
-# shrek
-- public.shrekmedia.org
+  # shrek
+  - DOMAIN-SUFFIX,public.shrekmedia.org
 
-# SNTP
-- lite.cn2gias.uk
+  # SNTP
+  - DOMAIN-SUFFIX,lite.cn2gias.uk
 
-# Msky
-- wcf.3msky.com
+  # Msky
+  - DOMAIN-SUFFIX,wcf.3msky.com
 
-# 佬友记
-- emby.605305.xyz
-- o.pki.goog
+  # 佬友记
+  - DOMAIN-SUFFIX,emby.605305.xyz
+  - DOMAIN-SUFFIX,o.pki.goog
 
-# FYMS
-- fych.feiyue.lol
+  # FYMS
+  - DOMAIN-SUFFIX,fych.feiyue.lol
 
-# 一之濑琴美的公益电视台
-- emby.ichinosekotomi.com
+  # 一之濑琴美的公益电视台
+  - DOMAIN-SUFFIX,emby.ichinosekotomi.com
 
-# 步兵营地
-- bb.111848.xyz
-- gglist.111848.xyz
+  # 步兵营地
+  - DOMAIN-SUFFIX,bb.111848.xyz
+  - DOMAIN-SUFFIX,gglist.111848.xyz
 
-# HG
-- 111660.xyz
-- hgalist.hgemby.qzz.io
+  # HG
+  - DOMAIN-SUFFIX,111660.xyz
+  - DOMAIN-SUFFIX,hgalist.hgemby.qzz.io
 
-# catemby
-- file.fastcdn.dpdns.org
-- emby.fastcdn.dpdns.org
+  # catemby
+  - DOMAIN-SUFFIX,file.fastcdn.dpdns.org
+  - DOMAIN-SUFFIX,emby.fastcdn.dpdns.org
 
-# MICU
-- media.micu.hk
+  # MICU
+  - DOMAIN-SUFFIX,media.micu.hk
 
-# 二次元
-- media.nijigem.by
-- online-distribute.bgp.yt
+  # 二次元
+  - DOMAIN-SUFFIX,media.nijigem.by
+  - DOMAIN-SUFFIX,online-distribute.bgp.yt
 
-# Lunaris Vault
-- lunarisvault.com
+  # Lunaris Vault
+  - DOMAIN-SUFFIX,lunarisvault.com
 
-# 屿森
-- emby.yusen6.ccwu.cc
-- yusen.cyou
+  # 屿森
+  - DOMAIN-SUFFIX,emby.yusen6.ccwu.cc
+  - DOMAIN-SUFFIX,yusen.cyou
 
-# 乐蛙
-- emby.taotu.ink
+  # 乐蛙
+  - DOMAIN-SUFFIX,emby.taotu.ink
