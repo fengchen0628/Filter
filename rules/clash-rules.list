@@ -1,3 +1,4 @@
+
 # 起点
 DOMAIN-SUFFIX,test.28.al
 DOMAIN-SUFFIX,us.aemby.de
@@ -44,8 +45,15 @@ DOMAIN-SUFFIX,online-distribute.bgp.yt
 DOMAIN-SUFFIX,lunarisvault.com
 
 # 屿森
+#主线路:
 DOMAIN-SUFFIX,emby.yusen6.ccwu.cc
 DOMAIN-SUFFIX,yusen.cyou
+#三网优化:
+DOMAIN-SUFFIX,ys.bydsb.cc.cd
+DOMAIN-SUFFIX,ys.cnmbyd.xyz
+DOMAIN-SUFFIX,ys.fw1.de5.net
+#移动优化:
+DOMAIN-SUFFIX,ys.sbcnm.us.ci
 
 # 乐蛙
 DOMAIN-SUFFIX,emby.taotu.ink
@@ -55,3 +63,36 @@ DOMAIN-SUFFIX,emby.60442173.xyz
 
 # 野草地
 DOMAIN-SUFFIX,od.emby.fan
+
+# 茉莉花开
+DOMAIN-SUFFIX,103.236.99.176
+
+# OkEmby
+DOMAIN-SUFFIX,okemby.org
+
+# 飞了个喵
+DOMAIN-SUFFIX,gy.meowfly.de
+
+# 这只猫
+DOMAIN-SUFFIX,eb.zzm.li
+
+# Nayovo
+DOMAIN-SUFFIX,nay.007.us.kg
+
+# 周三晚
+#DOMAIN-SUFFIX,
+
+# Cine trail 影迹
+DOMAIN-SUFFIX,cf.aixj.de
+
+# 叶子音乐服
+DOMAIN-SUFFIX,yyue.lyezi.cc
+
+# Nox
+DOMAIN-SUFFIX,test.inemby.us.ci
+
+# 银河列车
+#DOMAIN-SUFFIX,
+
+# Hana の 漫画服
+#DOMAIN-SUFFIX,
