@@ -6,6 +6,20 @@
 # TOTAL: 2
 DOMAIN-SUFFIX,themoviedb.org
 DOMAIN-SUFFIX,tmdb.org
+DOMAIN-SUFFIX,tmdb.api.fanart.tv
+
+# TVDB & Fanart (剧照/艺术图)
+DOMAIN-SUFFIX,thetvdb.com
+DOMAIN-SUFFIX,fanart.tv
+
+# IMDb & Trakt (评分/简介/同步)
+DOMAIN-SUFFIX,imdb.com
+DOMAIN-SUFFIX,media-imdb.com
+DOMAIN-SUFFIX,trakt.tv
+DOMAIN-SUFFIX,omdbapi.com
+
+# 弹幕
+DOMAIN-KEYWORD,danmu-api-theta-five-21.vercel.app
 
 # 起点
 DOMAIN-SUFFIX,test.28.al
