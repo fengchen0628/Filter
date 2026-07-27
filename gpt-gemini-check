@@ -1,0 +1,220 @@
+/**
+ * Sub-Store 自定义操作脚本：OpenAI (GPT) & Gemini 节点双重检测
+ * 适用客户端：Loon, Surge (需要支持 http-client-policy)
+ * 
+ * 参数配置说明（Sub-Store 节点操作参数）：
+ * - gpt: 是否检测 GPT，true/false（默认 true）
+ * - gemini: 是否检测 Gemini，true/false（默认 true）
+ * - gpt_prefix: GPT 成功前缀，默认 '[GPT] '
+ * - gemini_prefix: Gemini 成功前缀，默认 '[Gemini] '
+ * - cache: 是否开启缓存，true/false
+ * - concurrency: 检测并发数，默认 10
+ * - timeout: 超时时间(ms)，默认 5000
+ * - retries: 失败重试次数，默认 1
+ * - client: GPT 客户端版本, 'iOS' 或 'Android'，默认 'iOS'
+ */
+
+async function operator(proxies = [], targetPlatform, context) {
+  const $ = $substore
+  const { isLoon, isSurge } = $.env
+  if (!isLoon && !isSurge) throw new Error('仅支持 Loon 和 Surge(ability=http-client-policy)')
+
+  const checkGPT = $arguments.gpt !== false && $arguments.gpt !== 'false'
+  const checkGemini = $arguments.gemini !== false && $arguments.gemini !== 'false'
+
+  const includeUnsupportedProxy = $arguments.include_unsupported_proxy
+  const cacheEnabled = $arguments.cache
+  const disableFailedCache = $arguments.disable_failed_cache || $arguments.ignore_failed_error
+  const cache = scriptResourceCache
+
+  const gptPrefix = $arguments.gpt_prefix ?? '[GPT] '
+  const geminiPrefix = $arguments.gemini_prefix ?? '[Gemini] '
+  const method = $arguments.method || 'get'
+
+  const gptUrl = $arguments.client === 'Android' ? 'https://android.chat.openai.com' : 'https://ios.chat.openai.com'
+  const geminiUrl = 'https://generativelanguage.googleapis.com/v1beta/models?key=API_KEY_INVALID'
+
+  const target = isLoon ? 'Loon' : isSurge ? 'Surge' : undefined
+  const concurrency = parseInt($arguments.concurrency || 10)
+
+  await executeAsyncTasks(
+    proxies.map(proxy => () => checkProxy(proxy)),
+    { concurrency }
+  )
+
+  return proxies
+
+  async function checkProxy(proxy) {
+    const node = ProxyUtils.produce([proxy], target, undefined, {
+      'include-unsupported-proxy': includeUnsupportedProxy,
+    })
+    if (!node) return
+
+    let gptPassed = false
+    let geminiPassed = false
+
+    // 1. OpenAI (GPT) 检测
+    if (checkGPT) {
+      gptPassed = await checkService(proxy, node, {
+        type: 'gpt',
+        url: gptUrl,
+        validate: (status, msg) => status == 403 && !/unsupported_country/.test(msg)
+      })
+    }
+
+    // 2. Gemini 检测
+    if (checkGemini) {
+      geminiPassed = await checkService(proxy, node, {
+        type: 'gemini',
+        url: geminiUrl,
+        validate: (status, msg) => {
+          const isRestricted = /not available in your country|Location not supported|GeoRestricted|unsupported_country/i.test(msg)
+          return !isRestricted && (status === 200 || status === 400 || status === 403)
+        }
+      })
+    }
+
+    // 前缀拼接处理
+    let prefixes = ''
+    if (gptPassed) prefixes += gptPrefix
+    if (geminiPassed) prefixes += geminiPrefix
+    if (prefixes) {
+      proxy.name = `${prefixes}${proxy.name}`
+    }
+  }
+
+  // 通用服务检测模块
+  async function checkService(proxy, node, config) {
+    const { type, url, validate } = config
+    const cacheKey = getCacheKey(proxy, type, url)
+
+    // 缓存命中判断
+    if (cacheEnabled) {
+      const cached = cache.get(cacheKey)
+      if (cached) {
+        if (cached.success) {
+          proxy[`_${type}`] = true
+          proxy[`_${type}_latency`] = cached.latency
+          $.info(`[${proxy.name}] [${type.toUpperCase()}] 使用成功缓存`)
+          return true
+        } else if (!disableFailedCache) {
+          $.info(`[${proxy.name}] [${type.toUpperCase()}] 使用失败缓存`)
+          return false
+        }
+      }
+    }
+
+    try {
+      const startedAt = Date.now()
+      const res = await http({
+        method,
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3.1 Mobile/15E148 Safari/604.1',
+        },
+        url,
+        'policy-descriptor': node,
+        node,
+      })
+
+      const status = parseInt(res.status ?? res.statusCode ?? 200)
+      let body = String(res.body ?? res.rawBody)
+      try {
+        body = JSON.parse(body)
+      } catch (e) {}
+
+      const msg = body?.error?.code || body?.error?.error_type || body?.error?.message || body?.cf_details || String(body)
+      const latency = Date.now() - startedAt
+
+      const isPass = validate(status, msg)
+      $.info(`[${proxy.name}] [${type.toUpperCase()}] status: ${status}, latency: ${latency}ms, pass: ${isPass}`)
+
+      if (isPass) {
+        proxy[`_${type}`] = true
+        proxy[`_${type}_latency`] = latency
+        if (cacheEnabled) cache.set(cacheKey, { success: true, latency })
+        return true
+      } else {
+        if (cacheEnabled) cache.set(cacheKey, { success: false })
+        return false
+      }
+    } catch (e) {
+      $.error(`[${proxy.name}] [${type.toUpperCase()}] ${e.message ?? e}`)
+      if (cacheEnabled) cache.set(cacheKey, { success: false })
+      return false
+    }
+  }
+
+  // 生成节点精细化缓存 Key
+  function getCacheKey(proxy, service, url) {
+    if (!cacheEnabled) return undefined
+    const cleanProxy = Object.fromEntries(
+      Object.entries(proxy).filter(([key]) => !/^(name|collectionName|subName|id|_.*)$/i.test(key))
+    )
+    return `${service}:${url}:${JSON.stringify(cleanProxy)}`
+  }
+
+  // HTTP 请求及重试控制
+  async function http(opt = {}) {
+    const METHOD = opt.method || 'get'
+    const TIMEOUT = parseFloat(opt.timeout || $arguments.timeout || 5000)
+    const RETRIES = parseFloat(opt.retries ?? $arguments.retries ?? 1)
+    const RETRY_DELAY = parseFloat(opt.retry_delay ?? $arguments.retry_delay ?? 1000)
+
+    let count = 0
+    const fn = async () => {
+      try {
+        return await $.http[METHOD]({ ...opt, timeout: TIMEOUT })
+      } catch (e) {
+        if (count < RETRIES) {
+          count++
+          const delay = RETRY_DELAY * count
+          await $.wait(delay)
+          return await fn()
+        } else {
+          throw e
+        }
+      }
+    }
+    return await fn()
+  }
+
+  // 异步任务并发池
+  function executeAsyncTasks(tasks, { wrap, result, concurrency = 1 } = {}) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let running = 0
+        const results = []
+        let index = 0
+
+        function executeNextTask() {
+          while (index < tasks.length && running < concurrency) {
+            const taskIndex = index++
+            const currentTask = tasks[taskIndex]
+            running++
+
+            currentTask()
+              .then(data => {
+                if (result) results[taskIndex] = wrap ? { data } : data
+              })
+              .catch(error => {
+                if (result) results[taskIndex] = wrap ? { error } : error
+              })
+              .finally(() => {
+                running--
+                executeNextTask()
+              })
+          }
+
+          if (running === 0) {
+            return resolve(result ? results : undefined)
+          }
+        }
+
+        await executeNextTask()
+      } catch (e) {
+        reject(e)
+      }
+    })
+  }
+}
