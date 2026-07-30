@@ -16,10 +16,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+   
       - name: Set up Python
-        uses: actions/python-action@v5
+        uses: actions/setup-python@v5  # ✅ 改为 setup-python
         with:
           python-version: '3.x'
+
 
       - name: Install Dependencies
         run: |
