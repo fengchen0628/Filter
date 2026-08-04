@@ -74,7 +74,7 @@ DOMAIN-SUFFIX,yusen.us.ci  # 直连
 #DOMAIN-SUFFIX,emby.yusen6.ccwu.cc
 #DOMAIN-SUFFIX,yusen.cyou
 #三网优化:
-#DOMAIN-SUFFIX,ys.bydsb.cc.cd
+DOMAIN-SUFFIX,ys.bydsb.cc.cd
 #DOMAIN-SUFFIX,ys.cnmbyd.xyz
 #DOMAIN-SUFFIX,ys.fw1.de5.net
 #移动优化:
