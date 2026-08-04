@@ -64,9 +64,12 @@ DOMAIN-SUFFIX,media.nijigem.by
 DOMAIN-SUFFIX,online-distribute.bgp.yt
 
 # Lunaris Vault
-DOMAIN-SUFFIX,lunarisvault.com
+DOMAIN-SUFFIX,lunarisvault.com  # 直连
 
 # 屿森
+DOMAIN-SUFFIX,yusen.cc.cd  # 直连
+DOMAIN-SUFFIX,yusen.cyou  # 直连
+DOMAIN-SUFFIX,yusen.us.ci  # 直连
 #主线路:
 #DOMAIN-SUFFIX,emby.yusen6.ccwu.cc
 #DOMAIN-SUFFIX,yusen.cyou
@@ -78,16 +81,16 @@ DOMAIN-SUFFIX,lunarisvault.com
 #DOMAIN-SUFFIX,ys.sbcnm.us.ci
 
 # 乐蛙
-DOMAIN-SUFFIX,emby.taotu.ink
+DOMAIN-SUFFIX,emby.taotu.ink  # 直连
 
 # 风月阁
 DOMAIN-SUFFIX,emby.60442173.xyz
 
 # 野草地
-DOMAIN-SUFFIX,od.emby.fan
+DOMAIN-SUFFIX,od.emby.fan  # 直连
 
-# 茉莉花开
-DOMAIN-SUFFIX,103.236.99.176
+# 茉莉花开音乐
+DOMAIN-SUFFIX,103.236.99.176  # 直连
 
 # OkEmby
 DOMAIN-SUFFIX,okemby.org
@@ -117,9 +120,22 @@ DOMAIN-SUFFIX,test.inemby.us.ci
 DOMAIN-SUFFIX,ciallo.party
 DOMAIN-SUFFIX,yuanshen.help
 
-
 # Hana の 漫画服
 #DOMAIN-SUFFIX,
 
-#帝服
+# 帝服
 DOMAIN-SUFFIX,emby.di0.uk
+
+# 龟仙屋
+DOMAIN-SUFFIX,gxwplay.com
+
+# eoos
+DOMAIN-SUFFIX,ea.eoos.top
+DOMAIN-SUFFIX,emby.mm880.xyz/ea/  # 电信联通优选 直连
+DOMAIN-SUFFIX,emby.eoos.lol/ea  # 移动优选 直连
+
+# 哇哇叫
+DOMAIN-SUFFIX,emby.wawajiao.cc.cd  # 直连
+
+# 茉莉emby
+DOMAIN-SUFFIX,em.mlhyy.top  # 直连
