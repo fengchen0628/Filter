@@ -1,0 +1,53 @@
+payload:
+- DOMAIN-SUFFIX,themoviedb.org
+- DOMAIN-SUFFIX,tmdb.org
+- DOMAIN-SUFFIX,tmdb.api.fanart.tv
+- DOMAIN-SUFFIX,thetvdb.com
+- DOMAIN-SUFFIX,fanart.tv
+- DOMAIN-SUFFIX,imdb.com
+- DOMAIN-SUFFIX,media-imdb.com
+- DOMAIN-SUFFIX,trakt.tv
+- DOMAIN-SUFFIX,omdbapi.com
+- DOMAIN-KEYWORD,danmu-api-theta-five-21.vercel.app
+- DOMAIN-SUFFIX,test.28.al
+- DOMAIN-SUFFIX,us.aemby.de
+- DOMAIN-SUFFIX,public.shrekmedia.org
+- DOMAIN-SUFFIX,lite.cn2gias.uk
+- DOMAIN-SUFFIX,wcf.3msky.com
+- DOMAIN-SUFFIX,emby.605305.xyz
+- DOMAIN-SUFFIX,o.pki.goog
+- DOMAIN-SUFFIX,fych.feiyue.lol
+- DOMAIN-SUFFIX,emby.ichinosekotomi.com
+- DOMAIN-SUFFIX,bb.111848.xyz
+- DOMAIN-SUFFIX,gglist.111848.xyz
+- DOMAIN-SUFFIX,111660.xyz
+- DOMAIN-SUFFIX,hgalist.hgemby.qzz.io
+- DOMAIN-SUFFIX,file.fastcdn.dpdns.org
+- DOMAIN-SUFFIX,emby.fastcdn.dpdns.org
+- DOMAIN-SUFFIX,media.micu.hk
+- DOMAIN-SUFFIX,media.nijigem.by
+- DOMAIN-SUFFIX,online-distribute.bgp.yt
+- 'DOMAIN-SUFFIX,lunarisvault.com  # 直连'
+- 'DOMAIN-SUFFIX,yusen.cc.cd  # 直连'
+- 'DOMAIN-SUFFIX,yusen.cyou  # 直连'
+- 'DOMAIN-SUFFIX,yusen.us.ci  # 直连'
+- 'DOMAIN-SUFFIX,emby.taotu.ink  # 直连'
+- DOMAIN-SUFFIX,emby.60442173.xyz
+- 'DOMAIN-SUFFIX,od.emby.fan  # 直连'
+- 'DOMAIN-SUFFIX,103.236.99.176  # 直连'
+- DOMAIN-SUFFIX,okemby.org
+- DOMAIN-SUFFIX,gy.meowfly.de
+- DOMAIN-SUFFIX,eb.zzm.li
+- DOMAIN-SUFFIX,nay.007.us.kg
+- DOMAIN-SUFFIX,cf.aixj.de
+- DOMAIN-SUFFIX,yyue.lyezi.cc
+- DOMAIN-SUFFIX,test.inemby.us.ci
+- DOMAIN-SUFFIX,ciallo.party
+- DOMAIN-SUFFIX,yuanshen.help
+- DOMAIN-SUFFIX,emby.di0.uk
+- DOMAIN-SUFFIX,gxwplay.com
+- DOMAIN-SUFFIX,ea.eoos.top
+- 'DOMAIN-SUFFIX,emby.mm880.xyz/ea/  # 电信联通优选 直连'
+- 'DOMAIN-SUFFIX,emby.eoos.lol/ea  # 移动优选 直连'
+- 'DOMAIN-SUFFIX,emby.wawajiao.cc.cd  # 直连'
+- 'DOMAIN-SUFFIX,em.mlhyy.top  # 直连'
