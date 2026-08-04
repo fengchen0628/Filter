@@ -1,27 +1,26 @@
-name: Auto Convert List to YAML
+name: Auto Convert Rules
 
 on:
   push:
     paths:
-      - 'rules/**/*.list'  # 只有当 rules 目录下的 .list 文件发生修改时才触发
-  workflow_dispatch:        # 支持在 GitHub 页面手动触发执行
+      - 'rules/**/*.list'
+      - '*.list'
+  workflow_dispatch:
 
 jobs:
   convert:
     runs-on: ubuntu-latest
     permissions:
-      contents: write       # 允许 Actions 向仓库提交新代码
+      contents: write
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-   
       - name: Set up Python
-        uses: actions/setup-python@v5  # ✅ 改为 setup-python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-
 
       - name: Install Dependencies
         run: |
@@ -31,9 +30,9 @@ jobs:
       - name: Run Converter Script
         run: python generate_yaml.py
 
-      - name: Commit & Push Generated YAML
+      - name: Commit & Push Generated Rules
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "auto: update ruleset yaml [skip ci]"
-          file_pattern: "generated/*.yaml"
+          commit_message: "auto: update direct/proxy list & yaml [skip ci]"
+          file_pattern: "generated/*"
           branch: ${{ github.ref_name }}
