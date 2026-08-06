@@ -1,8 +1,10 @@
 import os
-import glob
 import yaml
 
 def parse_and_split_list_file(file_path):
+    """
+    解析源 .list 文件，提取规则本体并按注释分类
+    """
     direct_rules = []
     proxy_rules = []
 
@@ -10,11 +12,11 @@ def parse_and_split_list_file(file_path):
         for line in f:
             line = line.strip()
 
-            # 1. 跳过空行以及以 # 或 // 开头的纯注释行（如 #name）
+            # 过滤空行，以及以 # 或 // 开头的纯注释行（如 #name）
             if not line or line.startswith('#') or line.startswith('//'):
                 continue
 
-            # 2. 提取行内注释
+            # 提取并分离行内注释
             comment = ""
             rule_part = line
             if '#' in line:
@@ -22,14 +24,13 @@ def parse_and_split_list_file(file_path):
             elif '//' in line:
                 rule_part, comment = line.split('//', 1)
 
-            # 3. 清除规则与注释多余空格（彻底删除行内注释）
             rule = rule_part.strip()
             comment = comment.strip()
 
             if not rule:
                 continue
 
-            # 4. 根据行内注释是否包含“直连”分类
+            # 判断行内注释是否包含“直连”
             if "直连" in comment:
                 direct_rules.append(rule)
             else:
@@ -38,47 +39,42 @@ def parse_and_split_list_file(file_path):
     return direct_rules, proxy_rules
 
 def save_list_file(file_path, rules):
+    """保存为纯文本 .list 文件"""
     with open(file_path, 'w', encoding='utf-8') as f:
         for rule in rules:
             f.write(f"{rule}\n")
 
 def save_yaml_file(file_path, rules):
+    """保存为 YAML 格式文件"""
     yaml_data = {'payload': rules}
     with open(file_path, 'w', encoding='utf-8') as f:
         yaml.dump(yaml_data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
 def main():
-    # 设定输出文件夹
+    # 锁定源文件路径
+    target_file = "rules/emby.list"
     output_dir = "generated"
+
     os.makedirs(output_dir, exist_ok=True)
 
-    # 优先查找根目录或 rules/ 目录下的 main.list 或任意 .list 文件
-    list_files = glob.glob("rules/*.list") + glob.glob("*.list")
-    
-    # 过滤掉输出目录中的文件，避免重复读取
-    list_files = [f for f in list_files if not f.startswith(output_dir)]
-
-    if not list_files:
-        print("❌ 未找到任何 .list 源文件！")
+    if not os.path.exists(target_file):
+        print(f"❌ 找不到指定的源文件: {target_file}")
         return
 
-    for list_file in list_files:
-        filename = os.path.basename(list_file)
-        base_name = os.path.splitext(filename)[0]
+    # 解析 rules/emby.list
+    direct_rules, proxy_rules = parse_and_split_list_file(target_file)
 
-        direct_rules, proxy_rules = parse_and_split_list_file(list_file)
+    # 1. 导出直连规则 (generated/emby_direct.list 与 generated/emby_direct.yaml)
+    if direct_rules:
+        save_list_file(os.path.join(output_dir, "emby_direct.list"), direct_rules)
+        save_yaml_file(os.path.join(output_dir, "emby_direct.yaml"), direct_rules)
+        print(f"✅ 生成直连规则 ({len(direct_rules)} 条): generated/emby_direct.list / .yaml")
 
-        # 处理并保存直连规则
-        if direct_rules:
-            save_list_file(os.path.join(output_dir, f"{base_name}_direct.list"), direct_rules)
-            save_yaml_file(os.path.join(output_dir, f"{base_name}_direct.yaml"), direct_rules)
-            print(f"✅ 生成直连规则 ({len(direct_rules)} 条): {base_name}_direct.list / .yaml")
-
-        # 处理并保存代理规则
-        if proxy_rules:
-            save_list_file(os.path.join(output_dir, f"{base_name}_proxy.list"), proxy_rules)
-            save_yaml_file(os.path.join(output_dir, f"{base_name}_proxy.yaml"), proxy_rules)
-            print(f"✅ 生成代理规则 ({len(proxy_rules)} 条): {base_name}_proxy.list / .yaml")
+    # 2. 导出代理规则 (generated/emby_proxy.list 与 generated/emby_proxy.yaml)
+    if proxy_rules:
+        save_list_file(os.path.join(output_dir, "emby_proxy.list"), proxy_rules)
+        save_yaml_file(os.path.join(output_dir, "emby_proxy.yaml"), proxy_rules)
+        print(f"✅ 生成代理规则 ({len(proxy_rules)} 条): generated/emby_proxy.list / .yaml")
 
 if __name__ == "__main__":
     main()
