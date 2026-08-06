@@ -1,17 +1,16 @@
-name: Auto Convert Rules
+name: Auto Convert Emby Rules
 
 on:
   push:
     paths:
-      - 'rules/**/*.list'
-      - '*.list'
-  workflow_dispatch:
+      - 'rules/emby.list'   # 🎯 仅在 rules/emby.list 发生更新时触发
+  workflow_dispatch:        # 支持在 GitHub 网页端手动触发
 
 jobs:
   convert:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write       # 赋予提交权限
 
     steps:
       - name: Checkout Repository
@@ -33,6 +32,6 @@ jobs:
       - name: Commit & Push Generated Rules
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "auto: update direct/proxy list & yaml [skip ci]"
+          commit_message: "auto: update emby_direct & emby_proxy rules [skip ci]"
           file_pattern: "generated/*"
           branch: ${{ github.ref_name }}
