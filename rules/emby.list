@@ -142,3 +142,7 @@ DOMAIN-SUFFIX,em.mlhyy.top  # 直连
 
 # Peach
 DOMAIN-SUFFIX,embymv.link
+
+# 非越媒体库
+DOMAIN-SUFFIX,sfcj.org
+DOMAIN-SUFFIX,media.emby.pro  #推流服务器地址
