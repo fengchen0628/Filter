@@ -67,9 +67,10 @@ DOMAIN-SUFFIX,online-distribute.bgp.yt
 DOMAIN-SUFFIX,lunarisvault.com  # 直连
 
 # 屿森
-DOMAIN-SUFFIX,yusen.cc.cd  # 直连
-DOMAIN-SUFFIX,yusen.cyou  # 直连
+DOMAIN-SUFFIX,yusen6.ccwu.cc  # 直连
 DOMAIN-SUFFIX,yusen.us.ci  # 直连
+DOMAIN-SUFFIX,yusen.cyou  # 直连
+DOMAIN-SUFFIX,yusen.cc.cd  # 直连
 #主线路:
 #DOMAIN-SUFFIX,emby.yusen6.ccwu.cc
 #DOMAIN-SUFFIX,yusen.cyou
