@@ -147,3 +147,10 @@ DOMAIN-SUFFIX,embymv.link
 # 非越媒体库
 DOMAIN-SUFFIX,sfcj.org
 DOMAIN-SUFFIX,media.emby.pro  #推流服务器地址
+
+# 一点点
+DOMAIN-SUFFIX,43998362.xyz  # 直连
+DOMAIN-SUFFIX,4348663.xyz  # 直连
+
+# JMS假日飞行家
+DOMAIN-SUFFIX,matrix.313445.xyz
