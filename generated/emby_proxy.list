@@ -7,6 +7,8 @@ DOMAIN-SUFFIX,imdb.com
 DOMAIN-SUFFIX,media-imdb.com
 DOMAIN-SUFFIX,trakt.tv
 DOMAIN-SUFFIX,omdbapi.com
+DOMAIN-SUFFIX,introdb.app
+DOMAIN-SUFFIX,theintrodb.org
 DOMAIN-KEYWORD,danmu-api-theta-five-21.vercel.app
 DOMAIN-SUFFIX,test.28.al
 DOMAIN-SUFFIX,us.aemby.de
