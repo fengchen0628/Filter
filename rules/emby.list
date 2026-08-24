@@ -18,6 +18,9 @@ DOMAIN-SUFFIX,media-imdb.com
 DOMAIN-SUFFIX,trakt.tv
 DOMAIN-SUFFIX,omdbapi.com
 
+DOMAIN-SUFFIX,introdb.app
+DOMAIN-SUFFIX,theintrodb.org
+
 # 弹幕
 DOMAIN-KEYWORD,danmu-api-theta-five-21.vercel.app
 
