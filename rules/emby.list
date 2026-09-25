@@ -179,3 +179,16 @@ DOMAIN-SUFFIX,fnat.cc  # 直连
 # 茶包影视
 DOMAIN-SUFFIX,tbag.dpdns.org  # 直连
 DOMAIN-SUFFIX,tbag.qzz.io  # 美国代理
+
+# 怎么肥事zmfs
+DOMAIN-SUFFIX,emby-cf.suil.dpdns.org   #甲骨文直连
+DOMAIN-SUFFIX,216.144.234.247  #美国阿什本
+
+#月饼
+DOMAIN-SUFFIX,emby.my
+DOMAIN-SUFFIX,a.emby.my
+
+# 404
+DOMAIN-SUFFIX,awsjp.mjji.de  #移动联通直连
+DOMAIN-SUFFIX,ns1e.notfounda.shop   #cf
+DOMAIN-SUFFIX,embyxb.vvprovip.top   #移动联通直连2
