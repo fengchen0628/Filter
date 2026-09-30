@@ -58,3 +58,4 @@ payload:
 - DOMAIN-SUFFIX,emby.my
 - DOMAIN-SUFFIX,a.emby.my
 - DOMAIN-SUFFIX,ns1e.notfounda.shop
+- DOMAIN-SUFFIX,embyplus.org
