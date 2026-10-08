@@ -175,6 +175,7 @@ DOMAIN-SUFFIX,kingemby.com  # 直连
 
 # 挂壁
 DOMAIN-SUFFIX,fnat.cc  # 直连
+DOMAIN-SUFFIX,guabitv.online:443  # 直连
 
 # 茶包影视
 DOMAIN-SUFFIX,tbag.dpdns.org  # 直连
