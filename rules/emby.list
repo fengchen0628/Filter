@@ -183,7 +183,7 @@ DOMAIN-SUFFIX,guabitv.online:443  # 直连
 DOMAIN-SUFFIX,tbag.dpdns.org  # 直连
 DOMAIN-SUFFIX,tbag.qzz.io  # 美国代理
 
-# 怎么肥事zmfs
+# 怎么肥事zmfs 一柱擎天
 DOMAIN-SUFFIX,emby-cf.suil.dpdns.org   #甲骨文直连
 DOMAIN-SUFFIX,216.144.234.247  #美国阿什本
 
@@ -198,3 +198,7 @@ DOMAIN-SUFFIX,embyxb.vvprovip.top   #移动联通直连2
 
 # 纸片人
 DOMAIN-SUFFIX,embyplus.org
+
+# 茶百道
+DOMAIN-SUFFIX,teawaya.com
+DOMAIN-SUFFIX,chapanda.site
