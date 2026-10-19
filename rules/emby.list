@@ -192,6 +192,7 @@ DOMAIN-SUFFIX,emby.my
 DOMAIN-SUFFIX,a.emby.my
 
 # 404
+DOMAIN-SUFFIX,ccccddddnnnn.notfounda.shop   #cdn直连
 DOMAIN-SUFFIX,awsjp.mjji.de  #移动联通直连
 DOMAIN-SUFFIX,ns1e.notfounda.shop   #cf
 DOMAIN-SUFFIX,embyxb.vvprovip.top   #移动联通直连2
@@ -202,3 +203,7 @@ DOMAIN-SUFFIX,embyplus.org
 # 茶百道
 DOMAIN-SUFFIX,teawaya.com
 DOMAIN-SUFFIX,chapanda.site
+
+# 乐观
+DOMAIN-SUFFIX,emby.dijia.de   # 直连
+DOMAIN-SUFFIX,yxrkemby.haosao.de   # 直连
