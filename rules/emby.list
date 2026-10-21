@@ -184,7 +184,7 @@ DOMAIN-SUFFIX,tbag.dpdns.org  # 直连
 DOMAIN-SUFFIX,tbag.qzz.io  # 美国代理
 
 # 怎么肥事zmfs 一柱擎天
-DOMAIN-SUFFIX,emby-cf.suil.dpdns.org   #甲骨文直连
+DOMAIN-SUFFIX,emby-cf.suil.dpdns.org   #甲骨文
 DOMAIN-SUFFIX,216.144.234.247  #美国阿什本
 
 # 月饼
@@ -207,3 +207,7 @@ DOMAIN-SUFFIX,chapanda.site
 # 乐观
 DOMAIN-SUFFIX,emby.dijia.de   # 直连
 DOMAIN-SUFFIX,yxrkemby.haosao.de   # 直连
+
+# 盒马鲜生
+DOMAIN-SUFFIX,media.freshippo.uno
+
