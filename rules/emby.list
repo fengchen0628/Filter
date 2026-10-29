@@ -153,6 +153,7 @@ DOMAIN-SUFFIX,em.mlhyy.top  # 直连
 
 # Peach
 DOMAIN-SUFFIX,embymv.link
+DOMAIN-SUFFIX,embymv.cc
 
 # 非越媒体库
 DOMAIN-SUFFIX,sfcj.org
@@ -210,4 +211,7 @@ DOMAIN-SUFFIX,yxrkemby.haosao.de   # 直连
 
 # 盒马鲜生
 DOMAIN-SUFFIX,media.freshippo.uno
+
+# 宸澄cc
+DOMAIN-SUFFIX,embycc.wybcs.work   # 直连
 
