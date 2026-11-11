@@ -59,8 +59,11 @@ payload:
 - DOMAIN-SUFFIX,216.144.234.247
 - DOMAIN-SUFFIX,emby.my
 - DOMAIN-SUFFIX,a.emby.my
+- DOMAIN-SUFFIX,speedtest-babybus.apple-cdn.net
 - DOMAIN-SUFFIX,ns1e.notfounda.shop
 - DOMAIN-SUFFIX,embyplus.org
 - DOMAIN-SUFFIX,teawaya.com
 - DOMAIN-SUFFIX,chapanda.site
 - DOMAIN-SUFFIX,media.freshippo.uno
+- DOMAIN-SUFFIX,mi.miraiemby.com
+- DOMAIN-SUFFIX,mby.9527.new.tg
