@@ -110,6 +110,7 @@ DOMAIN-SUFFIX,gy.meowfly.de
 # 这只猫
 DOMAIN-SUFFIX,eb.zzm.li
 DOMAIN-SUFFIX,vipdc.covh.eu.org
+DOMAIN-SUFFIX,zzm.emby.20237737.xyz   #反代直连
 
 # Nayovo
 DOMAIN-SUFFIX,nay.007.us.kg
@@ -191,6 +192,7 @@ DOMAIN-SUFFIX,216.144.234.247  #美国阿什本
 # 月饼
 DOMAIN-SUFFIX,emby.my
 DOMAIN-SUFFIX,a.emby.my
+DOMAIN-SUFFIX,speedtest-babybus.apple-cdn.net   #播放推流
 
 # 404
 DOMAIN-SUFFIX,ccccddddnnnn.notfounda.shop   #cdn直连
@@ -214,4 +216,10 @@ DOMAIN-SUFFIX,media.freshippo.uno
 
 # 宸澄cc
 DOMAIN-SUFFIX,embycc.wybcs.work   # 直连
+
+# Mirai
+DOMAIN-SUFFIX,mi.miraiemby.com
+
+# 9527 有趣的灵魂
+DOMAIN-SUFFIX,mby.9527.new.tg
 
